@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% load thumbnail i18n %}
+
+
+{% block content %}
+    <ul class="mcol">
+                    {% for item in items %}
+                <li class="article" id="post-95">
+
+                    <div class="preview"><a href="#"><img width="305" height="380" {% thumbnail item.top_image "305x380" crop="center" as im %}src="{{im.url}}"{% endthumbnail %} class="attachment-background wp-post-image" alt="{{ item.title }}" title="{{ item.title }}" /></a></div>
+
+                         <div class="article-over">
+                      <h2><a href="" title="{{ item.title }}">{{ item.title }}</a></h2>
+                      <p>{{ item.description|truncatechars:"600" }}</p>
+                      <div class="postmetadata">
+                          Posted: September 4th, 2010&nbsp;&#721;&nbsp;
+                          <a href="" title="Comments">Comments</a><br />
+                          Filled under: <a href="#" title="" rel="category"></a>, <a href="#" title="View all posts in Illustration" rel="category">Illustration</a>                      </div>
+                    </div>
+                </li>  
+
+                    {% endfor %}                
+    </ul>
+{% endblock content %}
