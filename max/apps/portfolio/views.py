@@ -10,8 +10,8 @@ def homepage(request):
     return render(request, 'index.html', data)
 
 
-def category(request, slug):
-    category = get_object_or_404(PortfolioItemCategory, slug=slug)
+def category(request, category_slug):
+    category = get_object_or_404(PortfolioItemCategory, slug=category_slug)
     items = category.portfolioitem_set.all()
     data = {
         'category': category,
