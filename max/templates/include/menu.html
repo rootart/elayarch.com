@@ -1,45 +1,25 @@
  <div id="menu">
             <div id="navicons">
                 <ul>
-                    <li><a id="subscribe" href="http://imbalance.wpshower.com/?feed=rss2" title="">Subscribe</a></li>
+                    <li><a id="subscribe" href="{% url feed %}" title="">Subscribe</a></li>
                     <li><a id="twitter" href="" title="">Twitter</a></li>
                     <li><a id="facebook" href="" title="">Facebook</a></li>
                 </ul>
             </div>
             <div id="cats">
                 <ul>
-                    <li><a href="http://imbalance.wpshower.com/" title="" class="active">Home</a></li>
+                    <li><a href="/" title="" class="active">Home</a></li>
                     <li><a href="#" rel="toggle[categories]" title="">Categories</a></li>
-                    <li><a href="#" rel="toggle[archives]" title="">Archives</a></li>
-                    <li class="page_item page-item-2"><a href="http://imbalance.wpshower.com/?page_id=2" title="About">About</a></li>
-                    <li><a href="#" rel="toggle[search]" title="">Search</a></li>
+                    <li class="page_item page-item-2"><a href="/about/" title="About">About</a></li>
                 </ul>
             </div>
         </div>
         <div id="categories">
             <ul class="mcol2">
-                    <li class="cat-item cat-item-3"><a href="http://imbalance.wpshower.com/?cat=3" title="View all posts filed under Photography">Photography <span>6</span></a>
-</li>
-    <li class="cat-item cat-item-4"><a href="http://imbalance.wpshower.com/?cat=4" title="View all posts filed under Design">Design <span>7</span></a>
-</li>
-    <li class="cat-item cat-item-5"><a href="http://imbalance.wpshower.com/?cat=5" title="View all posts filed under Art">Art <span>6</span></a>
-</li>
-    <li class="cat-item cat-item-6"><a href="http://imbalance.wpshower.com/?cat=6" title="View all posts filed under Illustration">Illustration <span>4</span></a>
-</li>
-    <li class="cat-item cat-item-7"><a href="http://imbalance.wpshower.com/?cat=7" title="View all posts filed under Archeticture">Archeticture <span>3</span></a>
-</li>
-    <li class="cat-item cat-item-8"><a href="http://imbalance.wpshower.com/?cat=8" title="View all posts filed under News">News <span>3</span></a>
-</li>
+                {% for item in CATEGORIES %}
+                    <li class="cat-item cat-item-3"><a href="{% url category item.slug %}" title="{{ itme.title }}">{{ item.title }} <span>{{ item.items }}</span></a>
+                    </li>
+                {% endfor %}
+                 
             </ul>
         </div>
-        <div id="archives">
-            <ul class="mcol2">
-                    <li><a href='http://imbalance.wpshower.com/?m=201009' title='September 2010'>September 2010</a></li>
-    <li><a href='http://imbalance.wpshower.com/?m=201008' title='August 2010'>August 2010</a></li>
-            </ul>
-        </div>
-        <div id="search">
-            <form method="get" id="searchform" action="http://imbalance.wpshower.com/">
-    <input type="text" onfocus="if(this.value=='its a great way to find information') this.value='';" onblur="if(this.value=='') this.value='its a great way to find information';" value="its a great way to find information" name="s" id="s" /><br />
-</form>
-        </div> 

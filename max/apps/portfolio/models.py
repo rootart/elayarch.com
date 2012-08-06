@@ -17,6 +17,10 @@ class PortfolioItemCategory(models.Model):
     def __unicode__(self):
         return self.title
 
+    @property
+    def items(self):
+        return self.portfolioitem_set.filter(is_published=True).count()
+
 
 class PortfolioItem(models.Model):
     title = models.CharField(max_length=255)

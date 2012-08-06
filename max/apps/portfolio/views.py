@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-
+from django.contrib.syndication.views import Feed
+from django.core.urlresolvers import reverse
 from portfolio.models import PortfolioItemCategory, PortfolioItem, ItemImage
 
 
@@ -30,3 +31,21 @@ def item_details(request, category_slug, slug):
         'images': images
     }
     return render(request, 'details.html', data)
+
+
+class PortfolioItemFeed(Feed):
+    title = ""
+    link = ""
+    description = ""
+
+    def items(self):
+        return PortfolioItem.objects.order_by('-created')[:5]
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.description
+
+    def item_link(self, item):
+        return reverse('details', args=[item.category.slug, item.slug])
