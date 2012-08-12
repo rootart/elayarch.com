@@ -18,6 +18,9 @@
             {% endfor %}
           </div>
                 <div class="article" id="post-95">
+                  <br>
+                  <h1>{{ item.title }}</h1>
+                  <br>
                     <p>{{ item.description }}</p>
                     <div class="postmetadata"><span>Tagged in:</span> <a href="{% url category item.category.slug %}" rel="tag">{{ item.category.slug }}</a><br>
                     </div>
