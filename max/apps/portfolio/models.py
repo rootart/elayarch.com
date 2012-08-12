@@ -30,10 +30,15 @@ class PortfolioItem(models.Model):
     description = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    pub_date = models.DateField(blank=True, null=True)
+    position = models.PositiveIntegerField(default=0)
     is_published = models.BooleanField()
 
     def __unicode__(self):
         return self.title
+
+    class Meta:
+        ordering = ('-position',)
 
 
 class ItemImage(models.Model):
@@ -46,3 +51,8 @@ class ItemImage(models.Model):
 
     def __unicode__(self):
         return self.portfolioitem.title
+
+    class Meta:
+        verbose_name = 'Item image'
+        verbose_name_plural = 'Item images'
+        ordering = ('-position',)

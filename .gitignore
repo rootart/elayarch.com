@@ -6,6 +6,7 @@
 *.pyc
 local_settings.py
 settings_local.py
+static_collected/
 media/
 static_dst
 *.DS_Store

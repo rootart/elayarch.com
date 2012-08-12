@@ -15,6 +15,9 @@ urlpatterns = patterns('',
 
 )
 
+urlpatterns += patterns('',
+    (r'^grappelli/', include('grappelli.urls')),
+)
 
 if settings.DEBUG:
     urlpatterns += patterns('',

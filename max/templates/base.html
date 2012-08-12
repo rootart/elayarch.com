@@ -20,11 +20,15 @@
 <link rel='stylesheet' id='cleaner-gallery-css'  href='http://imbalance.wpshower.com/wp-content/plugins/cleaner-gallery/cleaner-gallery.css?ver=0.8' type='text/css' media='all' />
 <script type='text/javascript' src='{% static "js/jquery-1.4.1.min.js" %}'></script>
 <script type='text/javascript' src='{% static "js/photo-galleria/js/jquery.galleria.js" %}'></script>
+<script type="text/javascript" src='{% static "js/galleria-1.2.7.js" %}'></script>
 
 <script type='text/javascript'>
 //<![CDATA[
 jQuery(function($) {
-        
+      $('.article[data-link]').click(function(event){
+        event.preventDefault();
+        window.location.href = $(this).attr('data-link');
+      });
         $('ul.gallery_list').addClass('show_gallery'); // adds new class name to maintain degradability
         $('.galleria_wrapper').remove();
         $('ul.show_gallery').galleria({
@@ -86,7 +90,7 @@ jQuery(function($) {
                                                                                                                                     
         <div id="footer">
             <div id="copyright">&copy; 2012. All Rights Reserved.</div>
-            <div id="credits"> Designed by <a href="http://wpshower.com/">WPSHOWER</a></div>
+            <div id="credits"><a href="/about/">Maxim Rokhmaniyko</a></div>
         </div>
     </div>
 </body>
