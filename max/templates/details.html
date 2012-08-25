@@ -2,17 +2,15 @@
 {% load i18n thumbnail %}
 {% block content %}
   <style type="text/css">
-    #galleria{height:500px}
+    #galleria{height:480px}
   </style>
-
-
             <div id="main">
                             <div class="entry">
           <div id="galleria">
             {% for image in images %}
                       <a {% thumbnail image.image "1200x800" crop="left" as im %} href="{{im.url}}"{% endthumbnail %}>
-                <img data-title="Locomotives Roundhouse"
-                     data-description="Steam locomotives of the Chicago &amp; North Western Railway."
+                <img data-title=""
+                     data-description="{{ image.description }}"
                      {% thumbnail image.image "100x100" crop="center" as im %}src="{{im.url}}"{% endthumbnail %}>
             </a>
             {% endfor %}
@@ -29,7 +27,7 @@
                     ﻿
 
                 </div>
-                                    </div>         
+              </div>         
             </div>
             <script type="text/javascript">
                   Galleria.loadTheme('/static/js/classic/galleria.classic.js');

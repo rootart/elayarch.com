@@ -43,7 +43,7 @@ class PortfolioItem(models.Model):
 
 class ItemImage(models.Model):
     portfolioitem = models.ForeignKey(PortfolioItem)
-    descrption = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to="portfolio/images")
     position = models.PositiveIntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
