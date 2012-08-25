@@ -10,7 +10,7 @@
 
                          <div class="article-over">
                       <h2><a href="{% url details item.category.slug item.slug %}" title="{{ item.title }}">{{ item.title }}</a></h2>
-                      <p>{{ item.description|truncatechars:"600" }}</p>
+                      <p>{{ item.description|safe|truncatewords_html:"40" }}</p>
                       <div class="postmetadata">
                           Posted: {{ item.pub_date|date:"F d, Y" }}&nbsp;&#721;&nbsp;<br>
                           Filled under:  <a href="{% url category item.category.slug %}" title="{{ item.category.title }}" rel="category">{{ item.category.title }}</a>                      </div>
