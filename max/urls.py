@@ -8,6 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^imperavi/', include('imperavi.urls')),
     url(r'^feed/$', PortfolioItemFeed(), name='feed'),
     url(r'$^', 'portfolio.views.homepage', name='homepage'),
     url(r'^(?P<category_slug>[\w\s-]+)/$', 'portfolio.views.category', name='category'),

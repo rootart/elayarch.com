@@ -3,3 +3,6 @@ django-grappelli
 sorl-thumbnail
 south
 django-extensions
+-e git+https://github.com/aljosa/django-tinymce.git#egg=tinymce
+PIL
+-e git+https://github.com/vasyabigi/django-imperavi.git#egg=imperavi

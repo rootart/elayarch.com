@@ -1,25 +1,33 @@
 {% extends "base.html" %}
-{% load i18n thumbnail %}
+{% load i18n thumbnail %}{% load static %}
+
+{% block extra_js %}
+<script type='text/javascript' src='{% static "js/jquery-1.4.1.min.js" %}'></script>
+{% endblock extra_js %}
+
 {% block content %}
   <style type="text/css">
     #galleria{height:480px}
+    .galleria-layer div{top:10px;left:10px;padding:10px;position:absolute;background-color: #fff;}
+    .galleria-layer h2{margin: 0 0 8px;font-size:22px;line-height:1;}
+    .galleria-layer p{margin:0}
   </style>
             <div id="main">
                             <div class="entry">
           <div id="galleria">
             {% for image in images %}
-                      <a {% thumbnail image.image "1200x800" crop="left" as im %} href="{{im.url}}"{% endthumbnail %}>
-                <img data-title=""
+              <a {% thumbnail image.image "1200x800" crop="left" as im %} href="{{im.url}}"{% endthumbnail %}>
+                <img data-title="{{ image.title }}"
                      data-description="{{ image.description }}"
-                     {% thumbnail image.image "100x100" crop="center" as im %}src="{{im.url}}"{% endthumbnail %}>
+                     {% thumbnail image.image "100x100" crop="center" as im %}src="{{im.url}}"{% endthumbnail %} />
             </a>
             {% endfor %}
           </div>
                 <div class="article" id="post-95">
                   <br>
-                  <h1>{{ item.title }}</h1>
+                  <h1>{{ item.title|safe }}</h1>
                   <br>
-                    <p>{{ item.description }}</p>
+                    <p>{{ item.description|safe }}</p>
                     <div class="postmetadata"><span>Tagged in:</span> <a href="{% url category item.category.slug %}" rel="tag">{{ item.category.slug }}</a><br>
                     </div>
                 </div>
@@ -29,8 +37,14 @@
                 </div>
               </div>         
             </div>
+			<script type="text/javascript" src='{% static "js/galleria-1.2.7.js" %}'></script>
             <script type="text/javascript">
-                  Galleria.loadTheme('/static/js/classic/galleria.classic.js');
-                  Galleria.run('#galleria');
+			$(document).ready(function(){
+                Galleria.loadTheme('/static/js/classic/galleria.classic.js');
+                $('#galleria').galleria({
+				  imageCrop: true,
+				  transition: 'fadeslide'
+                });
+			});
             </script> 
 {% endblock content %}
