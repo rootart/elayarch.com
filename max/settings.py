@@ -5,7 +5,7 @@ import datetime
 
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 sys.path.append(os.path.join(PROJECT_PATH, 'apps'),)
-PARENT_HOST = 'mymoneypark.ch'
+
 
 ugettext = lambda s: s
 
@@ -14,7 +14,7 @@ LOCAL_TEMPLATE_CONTEXT_PROCESSORS_PREFIX = LOCAL_TEMPLATE_CONTEXT_PROCESSORS = L
 LOCAL_DEVELOPMENT = False
 
 ADMINS = (
-    ('Vasyl Dizhak', 'dijakroot@gmail.com'),
+    ('Traceback Me', 'tx9j1grih@api.traceback.me'),
 )
 
 MANAGERS = ADMINS
